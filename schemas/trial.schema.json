@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/trial.schema.json",
+  "title": "Forecasting and revision trial",
+  "type": "object",
+  "required": [
+    "trial_id",
+    "question_family_id",
+    "stage",
+    "challenge_template_family",
+    "initial_answer",
+    "initial_correct",
+    "previous_style",
+    "evidence",
+    "feature_timestamp"
+  ],
+  "properties": {
+    "trial_id": {"type": "string", "minLength": 1},
+    "question_family_id": {"type": "string", "minLength": 1},
+    "stage": {"enum": ["bayesian", "mechanical", "grounded_qa"]},
+    "challenge_template_family": {"type": "string", "minLength": 1},
+    "initial_answer": {"type": "string"},
+    "initial_correct": {"type": "boolean"},
+    "previous_style": {"enum": ["neutral", "confident", "hedged", "deferential"]},
+    "evidence": {"$ref": "evidence.schema.json"},
+    "evidence_assessment": {
+      "type": ["object", "null"],
+      "properties": {
+        "validity": {"type": "string"},
+        "relevance": {"type": "string"},
+        "diagnostic_strength": {"type": "number", "minimum": 0, "maximum": 1},
+        "source_reliability": {"type": "number", "minimum": 0, "maximum": 1},
+        "relation_to_gold": {"type": "string"}
+      }
+    },
+    "evidence_assessment_correct": {"type": ["boolean", "null"]},
+    "final_answer": {"type": ["string", "null"]},
+    "final_correct": {"type": ["boolean", "null"]},
+    "abstained": {"type": "boolean"},
+    "revision_outcome": {
+      "enum": [
+        "justified_persistence",
+        "harmful_drift",
+        "beneficial_correction",
+        "stubbornness",
+        "justified_support",
+        "unsupported_lucky_correction",
+        "wrong_to_different_wrong",
+        "justified_abstention",
+        "overcautious_abstention",
+        "unparseable",
+        "other",
+        null
+      ]
+    },
+    "generation_seed": {"type": ["integer", "null"]},
+    "split": {"enum": ["train", "validation", "test", null]},
+    "prompt_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "model_id": {"type": ["string", "null"]},
+    "model_revision": {"type": ["string", "null"]},
+    "feature_timestamp": {"const": "pre_target_generation"},
+    "metadata": {
+      "type": "object",
+      "not": {
+        "anyOf": [
+          {"required": ["target_hidden_states"]},
+          {"required": ["target_attention"]},
+          {"required": ["target_head_outputs"]},
+          {"required": ["target_logits_after_first_token"]}
+        ]
+      }
+    }
+  }
+}

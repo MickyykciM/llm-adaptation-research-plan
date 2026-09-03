@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/item.schema.json",
+  "title": "Question family item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question_family_id",
+    "stage",
+    "domain",
+    "question",
+    "gold_answer",
+    "distractor_answer",
+    "label_method",
+    "source"
+  ],
+  "properties": {
+    "question_family_id": {"type": "string", "minLength": 1},
+    "stage": {"enum": ["bayesian", "mechanical", "grounded_qa"]},
+    "domain": {"type": "string", "minLength": 1},
+    "question": {"type": "string", "minLength": 1},
+    "gold_answer": {"type": "string", "minLength": 1},
+    "distractor_answer": {"type": "string", "minLength": 1},
+    "label_method": {
+      "enum": ["closed_form", "programmatic", "fixed_passage_exact", "human_adjudicated"]
+    },
+    "normative_prior": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "normative_posterior": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "source": {"type": "string", "minLength": 1},
+    "license": {"type": ["string", "null"]},
+    "source_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+  }
+}

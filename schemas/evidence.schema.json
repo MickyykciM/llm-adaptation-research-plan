@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "text",
+    "validity",
+    "relevance",
+    "diagnostic_strength",
+    "source_reliability",
+    "relation_to_gold",
+    "rhetorical_pressure",
+    "repetition_count",
+    "independence_group",
+    "provenance",
+    "generator_version"
+  ],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "text": {"type": "string"},
+    "validity": {
+      "enum": ["valid", "invalid", "ambiguous", "not_applicable"]
+    },
+    "relevance": {
+      "enum": ["relevant", "irrelevant", "partially_relevant"]
+    },
+    "diagnostic_strength": {"type": "number", "minimum": 0, "maximum": 1},
+    "source_reliability": {"type": "number", "minimum": 0, "maximum": 1},
+    "relation_to_gold": {
+      "enum": ["supports_gold", "contradicts_gold", "neutral", "mixed"]
+    },
+    "rhetorical_pressure": {"enum": ["neutral", "high", "factorial"]},
+    "repetition_count": {"type": "integer", "minimum": 1},
+    "independence_group": {"type": "string", "minLength": 1},
+    "provenance": {"type": "string", "minLength": 1},
+    "generator_version": {"type": "string", "minLength": 1}
+  }
+}

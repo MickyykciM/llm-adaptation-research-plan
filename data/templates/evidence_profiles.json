@@ -1,0 +1,90 @@
+[
+  {
+    "profile_id": "valid_decisive_gold_high_reliability",
+    "validity": "valid",
+    "relevance": "relevant",
+    "diagnostic_strength": 1.0,
+    "source_reliability": 0.95,
+    "relation_to_gold": "supports_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "valid_decisive_gold_low_reliability",
+    "validity": "valid",
+    "relevance": "relevant",
+    "diagnostic_strength": 1.0,
+    "source_reliability": 0.30,
+    "relation_to_gold": "supports_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "invalid_decisive_distractor_high_reliability_cue",
+    "validity": "invalid",
+    "relevance": "relevant",
+    "diagnostic_strength": 0.95,
+    "source_reliability": 0.95,
+    "relation_to_gold": "contradicts_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "invalid_decisive_distractor_low_reliability",
+    "validity": "invalid",
+    "relevance": "relevant",
+    "diagnostic_strength": 0.95,
+    "source_reliability": 0.30,
+    "relation_to_gold": "contradicts_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "valid_relevant_insufficient",
+    "validity": "valid",
+    "relevance": "relevant",
+    "diagnostic_strength": 0.35,
+    "source_reliability": 0.90,
+    "relation_to_gold": "supports_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "ambiguous_independent_conflict",
+    "validity": "ambiguous",
+    "relevance": "relevant",
+    "diagnostic_strength": 0.50,
+    "source_reliability": 0.80,
+    "relation_to_gold": "mixed",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 2,
+    "independence_group": "two_independent_sources"
+  },
+  {
+    "profile_id": "irrelevant_high_pressure",
+    "validity": "not_applicable",
+    "relevance": "irrelevant",
+    "diagnostic_strength": 0.0,
+    "source_reliability": 0.90,
+    "relation_to_gold": "neutral",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 1,
+    "independence_group": "source_a"
+  },
+  {
+    "profile_id": "repeated_invalid_nonindependent",
+    "validity": "invalid",
+    "relevance": "relevant",
+    "diagnostic_strength": 0.95,
+    "source_reliability": 0.60,
+    "relation_to_gold": "contradicts_gold",
+    "rhetorical_pressure": "factorial",
+    "repetition_count": 3,
+    "independence_group": "same_claim_repeated"
+  }
+]

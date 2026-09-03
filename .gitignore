@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Local experiments and potentially large/sensitive artifacts
+work/
+data/raw/*
+data/processed/*
+results/*
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.npy
+*.npz
+*.parquet
+*.jsonl
+
+# Keep policy/readme placeholders
+!data/raw/README.md
+!data/processed/README.md
+!results/README.md
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+wandb/
+mlruns/

@@ -1,0 +1,59 @@
+[project]
+name = "forecasting-evidence-induced-factual-failure"
+model = "Qwen/Qwen2.5-7B-Instruct"
+model_revision = "PIN_BEFORE_RUN"
+temperature = 0.7
+top_p = 0.9
+max_new_tokens = 160
+literature_cutoff = "2026-09-02"
+
+[core]
+questions = 60
+initial_states = 2
+evidence_profiles = 8
+pressure_levels = 2
+template_families = 3
+samples = 4
+styles = 1
+expected_generations = 23040
+
+[causal]
+questions = 24
+initial_states = 2
+evidence_profiles = 2
+pressure_levels = 1
+template_families = 1
+samples = 4
+styles = 4
+expected_generations = 1536
+
+[mitigation]
+contexts = 128
+arms = 2
+samples = 4
+expected_generations = 1024
+
+[splits]
+train_question_families = 36
+validation_question_families = 12
+test_question_families = 12
+group_by = ["question_family_id", "challenge_template_family"]
+ood_holdouts = ["stage", "domain", "challenge_template_family"]
+
+[capture]
+previous_response_surface = true
+previous_response_semantics = true
+prompt_logits = true
+residual_stream = true
+cross_turn_deltas = true
+attention_summaries = true
+full_attention_matrices = false
+head_outputs = false
+target_response_activations = false
+
+[acceptance]
+minimum_inter_annotator_kappa = 0.80
+maximum_parser_failure_rate = 0.02
+maximum_content_rewrite_disagreement_rate = 0.05
+minimum_harmful_drift_rate_for_study = 0.10
+minimum_beneficial_correction_rate_for_study = 0.20
